@@ -38,7 +38,7 @@ Có thể thấy hàm trên truyền vào hai chuỗi hash, sau đó gọi hàm 
 
 Tổng kết lại có thể thấy các hàm trong ``APICALL::`vftable'`` đều có 1 cách hoạt động chung, sử dụng hai chuỗi hash được khai báo để Resolve API, sau đó call API vừa resolve được với tham số là các tham số truyền vào của các hàm trên.
 
-``APICALL::`vftable'`` ban đầu có thể là một class C++ chứa địa chỉ các hàm resolve API, tuy nhiên vì ida không load được cấu trúc của class nên chúng ta thấy nó ở dạng ``vftable``. Sau đó ta thấy 1 số hàm sẽ được gọi dưới dạng câu lệnh ``apicall1 + 8``,... đó chính là câu lệnh ``apicall->GetProcAddr`` ở code gốc C++. Để thuận lợi cho việc đọc code và debug, mình sẽ SetIP và debug vào trước từng hàm để đổi tên chúng sang tên API mà hàm gọi ra.
+``APICALL::`vftable'`` ban đầu có thể là một class C++ chứa địa chỉ các hàm resolve API, tuy nhiên vì ida không load được cấu trúc của class nên chúng ta thấy nó ở dạng ``vftable``. Sau đó ta thấy 1 số hàm sẽ được gọi dưới dạng câu lệnh ``apicall1 + 8``,... đó chính là câu lệnh ``apicall1->GetProcAddr`` ở code gốc C++. Để thuận lợi cho việc đọc code và debug, mình sẽ SetIP và debug vào trước từng hàm để đổi tên chúng sang tên API mà hàm gọi ra.
 
 ![10](https://github.com/noobmannn/KCSC_CTF_2024/blob/0d7d091ea183b58f5fe85641243d14fcd4a475a0/behind%20the%20scenes/Img/10.png)
 
