@@ -147,7 +147,7 @@ Cuối cùng chương trình quay về hàm ``main``, dựa vào giá trị tr�
 
 ### Decrypt Flag
 
-Chương trình mã hoá input người dùng nhập vào bằng thuật toán AES-256, key và iv là hai giá trị của Registry, dựa vào đó mình sẽ viết script để lấy flag
+Chương trình mã hoá input người dùng nhập vào bằng thuật toán AES-256, key và iv là hai giá trị của 2 key được tạo ở Registry bởi các hàm trước, dựa vào đó mình sẽ viết script để lấy flag
 
 ```python
 from Crypto.Util.number import *
