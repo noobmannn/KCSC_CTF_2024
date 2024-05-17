@@ -32,7 +32,7 @@ Hàm ``createPEFileandInjectItTocmdexe`` sau khi decrypt các string và resolve
 
 Hàm ``returnPEFile`` sau khi decrypt các string và resolve api, hàm này gọi các hàm tương tác với resource trong file mixture.exe (FileResourceW, LoadResource, SizeofResource, LockResource). Tiến hành debug, mình thấy chương trình đang cố gắng lấy resource từ phần gọi là pfe của file mixture.exe. Mình thử mở file bằng CFF Explorer và vào phần Resource Editor, vào phần PFE bạn sẽ thấy những byte như dưới đây
 
-![image](https://github.com/noobmannn/KCSC_CTF_2024/assets/102444334/c34e7668-5eca-42f6-a09f-f0dc2d351a53)
+![image](https://github.com/noobmannn/KCSC_CTF_2024/assets/102444334/1231cc8d-ebe8-47a6-b2f9-dfa2753a0659)
 
 Trace qua toàn bộ phần xử lý resource và xem giá trị của biên ``v13``, ta sẽ thấy những byte trong resource trên được load vào chương trình
 
