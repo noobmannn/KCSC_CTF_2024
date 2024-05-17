@@ -22,7 +22,7 @@ Mình sẽ tiến hành phân tích từng hàm một.
 
 ![image](https://github.com/noobmannn/KCSC_CTF_2024/assets/102444334/143fb647-43fc-4b25-ad35-cad3bed5c332)
 
-Hàm này giữa quá trình inject các chuỗi, nó lại tiếp tục gọi đến hàm ``createPEFileandInjectItTocmdexe``
+Hàm này giữa quá trình decrypt các chuỗi, nó lại tiếp tục gọi đến hàm ``createPEFileandInjectItTocmdexe``
 
 ![image](https://github.com/noobmannn/KCSC_CTF_2024/assets/102444334/8de8cba8-8832-4f0f-bda0-7a08a29b14dd)
 
