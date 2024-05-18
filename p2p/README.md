@@ -190,7 +190,7 @@ Theo như phân tích ở trên, giá trị IV cho AES là giá trị của key 
 
 Key cn được lấy giá trị từ biến ``v47``. 14 byte đầu của biến này được khởi tạo như chúng ta thấy ở ảnh trên, nhưng vấn đề chính là ở 2 byte cuối. Sau khi chương trình khởi tạo 14 byte đầu, chương trình gọi hàm ``GetVolumeInformationA`` để lấy các thuộc tính quan trọng của ổ đĩa ``C:\``, trong đó có trường ``lpVolumeSerialNumber`` được lưu trong biến ``v26``. Tiếp theo chương trình lấy 2 byte đầu tiên và cuối cùng của giá trị này để gán vào 2 byte cuối của v47.
 
-Bởi vì với mỗi máy khác nhau và loại ổ đĩa khác nhau, giá trị ``lpVolumeSerialNumber`` sẽ khác nhau. Điều này dẫn đến IV cho thuật toán AES khác nhau ==> kết quả chạy trên mỗi máy sẽ khác nhau.
+Bởi vì với mỗi máy khác nhau và loại ổ đĩa khác nhau, giá trị ``lpVolumeSerialNumber`` sẽ khác nhau. Điều này dẫn đến IV cho thuật toán AES khác nhau -> kết quả chạy trên mỗi máy sẽ khác nhau.
 
 Script giải flag bằng C. Kết quả của script dưới là ``KCSC{C0n9r@tul╞q10n2_0n_mak1ng_1t(^.^)}``
 
