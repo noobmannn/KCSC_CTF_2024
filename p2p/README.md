@@ -178,13 +178,19 @@ Script trên trả về ``b'KCSC{C0n9r@tul\xc6q10n2_0n_mak1ng_1t(^.^)}\x00\x08\x
 
 # Note
 
-Vẫn còn một vấn đề mình chưa giải quyết được, đó là liệu bài này có antidebug hay không
-
 Khi mình nhập input là flag thật và không chạy debug, mình không hiểu tại sao kết quả nó lại như thế này :((
 
 ![image](https://github.com/noobmannn/KCSC_CTF_2024/assets/102444334/51eef860-c207-4d16-98bc-d679a2101ab8)
 
-Mình sẽ cố gắng giải quyết vấn đề này trong tương lai gần nhất có thể, rất xin lỗi mọi người :(((
+Lý do cho sự khác biệt này là bởi vì cách mà mỗi máy lấy IV cho thuật toán AES sẽ khác nhau
+
+Theo như phân tích ở trên, giá trị IV cho AES là giá trị của key cn được tạo trong Registry
+
+![image](https://github.com/noobmannn/KCSC_CTF_2024/assets/102444334/64bc4bd3-c634-4050-b465-e320f43c44ca)
+
+Key cn được lấy giá trị từ biến ``v47``. 14 byte đầu của biến này được khởi tạo như chúng ta thấy ở ảnh trên, nhưng vấn đề chính là ở 2 byte cuối. Sau khi chương trình khởi tạo 12 byte đầu, chương trình gọi hàm ``GetVolumeInformationA`` để lấy các thuộc tính quan trọng của ổ đĩa ``C:\``, trong đó có trường ``lpVolumeSerialNumber`` được lưu trong biến ``v26``. Tiếp theo chương trình lấy 2 byte đầu tiên và cuối cùng của giá trị này để gán vào 2 byte cuối của v47.
+
+Bởi vì với mỗi máy khác nhau và loại ổ đĩa khác nhau, giá trị ``lpVolumeSerialNumber`` sẽ khác nhau. Điều này dẫn đến IV cho thuật toán AES khác nhau ==> kết quả chạy trên mỗi máy sẽ khác nhau.
 
 Script giải flag bằng C. Kết quả của script dưới là ``KCSC{C0n9r@tul╞q10n2_0n_mak1ng_1t(^.^)}``
 
